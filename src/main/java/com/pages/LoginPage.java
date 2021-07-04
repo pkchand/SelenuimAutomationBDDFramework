@@ -40,6 +40,14 @@ public class LoginPage {
 		WebDriverWait wait= new WebDriverWait(driver, 60);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(userId));
 	}
+	
+	
+	public HomePage doLogin(String username, String pass) {
+		driver.findElement(userId).sendKeys(username);
+		driver.findElement(password).sendKeys(pass);
+		driver.findElement(loginButton).click();
+		return new HomePage(driver);
+	}
 
 
 }
